@@ -1,0 +1,138 @@
+.postImg {
+	height: 550px;
+	width: 550px;
+	overflow: hidden;
+}
+
+.descriptionbox,
+.commentbox,
+.liketracker,
+.likecommentbook {
+	padding-left: 15px;
+}
+
+.likecommentbook {
+	padding-top: 5px;
+	display: flex;
+	align-items: row;
+}
+
+.bookmark {
+	margin-left: auto;
+}
+
+.bookmark i {
+	align-self: flex-end;
+}
+
+.userimg {
+	height: 360;
+	width: 360;
+}
+
+.likebtn {
+	border: none;
+	background: none;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+}
+
+.userpost {
+	overflow: auto;
+	display: flex;
+	flex-direction: column;
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+		rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+	width: 550px;
+}
+
+.App {
+	display: flex;
+	justify-content: center;
+}
+
+.commenttext {
+	padding-top: 3px;
+	margin: 0;
+}
+
+a.authorName,
+.liketracker a,
+.descriptionbox a,
+.commentbox a {
+	color: black;
+	font-weight: bold;
+}
+
+a.authorName:hover,
+.liketracker a:hover,
+.descriptionbox a:hover,
+.commentbox a:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+.timestamp {
+	color: #8c8c8c;
+	font-size: 10px;
+}
+
+.profilepic {
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	background: 'red';
+	display: 'block';
+	overflow: hidden;
+}
+
+.topbar {
+	display: flex;
+	flex-direction: row;
+	padding: 2px 0px 5px 20px;
+}
+
+.locationtext,
+a.locationtext:hover {
+	color: black;
+}
+
+.toptext {
+	display: flex;
+	flex-direction: column;
+	padding-left: 10px;
+}
+
+.leavecomment {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+		rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.leavecomment p {
+	padding-right: 10px;
+	color: lightblue;
+}
+
+.leavecomment button {
+	border: none;
+	outline: none;
+	background-color: white;
+}
+
+.leavecomment i {
+	border: none !important;
+	font-size: 25px;
+	outline: none;
+}
+
+.leavecomment textarea {
+	outline: none;
+	resize: none;
+	width: 100%;
+	height: 60%;
+	border-style: hidden;
+}
