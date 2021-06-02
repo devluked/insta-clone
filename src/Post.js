@@ -27,7 +27,8 @@ function Post({ post }) {
                 </div>
             </div>
             <img src={postImg} className='postImg' alt=''/>
-                <div className='likecommentbook'>
+            <div className='bottomhalf'>
+            <div className='likecommentbook'>
                     <button onClick={handleLikeClick} className='likebtn'><i className={!isLiked ? 'heart outline icon' : 'heart icon'}></i></button>
                     <button onClick={()=>console.log('comment')} className='likebtn'><i className='comment outline icon'></i></button>
                     <div className='bookmark'>
@@ -57,6 +58,7 @@ function Post({ post }) {
                     <textarea placeholder='Add a comment...'></textarea>
                     <button><p>Post</p></button>
                 </div>
+            </div>
 
         </div>
     )

@@ -1,38 +1,54 @@
 import './App.css';
 import Post from './Post.js';
 import { posts } from './data.js'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Axios from 'axios'
 
 
 function App() {
   return (
     <div className="App">
-      <ShowFetch/>
-     <Feed/>
+      <FetchPosts/>
+     {/* <Feed/> */}
     </div>
   );
 }
 
-function Feed() {
-  return (
-  <Post post={posts[0]}/>
-  )
-}
+// function Feed() {
+//   return (
+//   <Post post={posts[0]}/>
+//   )
+// }
 
-function ShowFetch() {
-  const [ posts, setPosts ] = useState([null])
+function FetchPosts() {
+  const [ posts, setPosts ] = useState('')
 
-  Axios.get('http://localhost:3001/api').then((response) => {
-      setPosts(response.data)
+  useEffect(() => {
+    getPosts();
+  }, [])
+
+  const getPosts = () => {
+      Axios.get('http://localhost:3001/api')
+      .then((response) => {
+        const allPosts = response.data
+        setPosts(allPosts)
     })
+      .catch(error => console.error('Error: ' + error))  
+  }
 
-    console.log((posts[0].profilePic))
-
+  if (posts.length > 0) {
   return (
-    <div>
-    </div> 
-  )
+    posts.map((post, index) => {
+      console.log(post)
+      return (
+          <Post post={post}/>
+      )
+    })
+  )} else {
+    return (
+       <h1>Feed is empty. Follow some friends!</h1>
+    )
+  }
 }
 
 

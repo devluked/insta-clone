@@ -1,14 +1,26 @@
 [
-		{
+	{
 			"_id": 0, 
-			"profilePic": "pfp",
+			"profilePic": "https://i.ibb.co/t4w39gV/pfp.jpg",
 			"locationData": "Maui, Hawaii",
 			"authorName" : "Deed",
-			"postImg" : "sunrise",
+			"postImg" : "https://i.ibb.co/zG964pd/sunrise.jpg",
 			"filler" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
 			"likes": 27,
 			"commentAuthors": ["Sdug123", "lalaSd"],
 			"comments": ["Nice!", "Cool picture :)"],
 			"timestamp": 6
+		},
+		{
+			"_id": 1, 
+			"profilePic": "https://i.ibb.co/t4w39gV/pfp.jpg",
+			"locationData": "Irvine, California",
+			"authorName" : "Deed",
+			"postImg" : "https://i.ibb.co/zG964pd/sunrise.jpg",
+			"filler" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			"likes": 27,
+			"commentAuthors": ["Sdug123", "lalaSd"],
+			"comments": ["Nice!", "Cool picture :)"],
+			"timestamp": 9
 		}
 ]
