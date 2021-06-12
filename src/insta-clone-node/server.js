@@ -10,6 +10,8 @@ app.use(cors({
 
 }))
 app.use(express.json())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: false }));
 
@@ -43,18 +45,21 @@ app.get('/api', (req, res) => {
 })
 
 app.post('/post', function(req, res) {
+    console.log(req.body)
     const newPost = {
         _id: req.body._id,
-        profilePic: req.body.pfp,
-        authorName : req.body.username,
-        postImg : req.body.imageLink,
-        filler : req.body.description,
+        profilePic: req.body.profilePic,
+        authorName : req.body.authorName,
+        postImg : req.body.postImg,
+        filler : req.body.filler,
         likes: req.body.likes,
         commentAuthors: req.body.commentAuthors,
         comments: req.body.comments,
         timestamp: req.body.timestamp
     }
     res.send(newPost)
+    new Post(newPost)
+    .save()
     console.log(newPost)
     res.end()
 })

@@ -18,12 +18,16 @@ function CreatePost() {
     })
 
     const handleFormChange = (e) => {
-        setPostData({[e.target.name]: e.target.value})
+        const {name, value} = e.target
+        setPostData(prev => ({...prev, [name]: value}))
+        console.log(postData)
+
+        console.log()
     }
 
     const handleFormSubmit = (e) => {
-        const post = JSON.stringify({
-            _id: 10,
+        const post = ({
+            _id: Math.floor(Math.random()*100),
             profilePic: postData.pfp,
             authorName : postData.username,
             postImg : postData.imageLink,
@@ -33,6 +37,7 @@ function CreatePost() {
             comments: [""],
             timestamp: 7
         })
+        console.log(post)
         sendPostRequest(post)
         alert('submitted')
 
