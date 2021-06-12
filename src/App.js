@@ -1,55 +1,46 @@
 import './App.css';
-import Post from './Post.js';
-import { posts } from './data.js'
-import { useEffect, useState } from 'react';
-import Axios from 'axios'
+import FetchPosts from './fetchPosts'
+import CreatePost from './createPost'
+import { useState } from 'react';
 
 
 function App() {
   return (
     <div className="App">
-      <FetchPosts/>
-     {/* <Feed/> */}
+      <Feed/>
     </div>
   );
 }
 
-// function Feed() {
-//   return (
-//   <Post post={posts[0]}/>
-//   )
-// }
-
-function FetchPosts() {
-  const [ posts, setPosts ] = useState('')
-
-  useEffect(() => {
-    getPosts();
-  }, [])
-
-  const getPosts = () => {
-      Axios.get('http://localhost:3001/api')
-      .then((response) => {
-        const allPosts = response.data
-        setPosts(allPosts)
-    })
-      .catch(error => console.error('Error: ' + error))  
+function Feed() {
+  const [ isPosting, toggleMode] = useState(false)
+  const addPostHandler = () => {
+    toggleMode(!isPosting)
+    console.log(isPosting)
   }
 
-  if (posts.length > 0) {
-  return (
-    posts.map((post, index) => {
-      console.log(post)
-      return (
-          <Post post={post}/>
-      )
-    })
-  )} else {
+  if (isPosting === false)
     return (
-       <h1>Feed is empty. Follow some friends!</h1>
+      <div>
+        <AddPostBtn postHandler={addPostHandler}/>
+        <FetchPosts/>
+      </div>
     )
-  }
+  else return (
+      <div>
+        <AddPostBtn postHandler={addPostHandler}/>
+        <CreatePost/>
+      </div>
+  )
 }
+
+function AddPostBtn(props) {
+  return (
+    <button onClick={props.postHandler}>Create Post</button>
+
+  )
+}
+
 
 
 

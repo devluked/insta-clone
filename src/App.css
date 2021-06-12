@@ -143,3 +143,8 @@ a.locationtext:hover {
 	height: 60%;
 	border-style: hidden;
 }
+
+.submissionContainer {
+	display: flex;
+	flex-direction: column;
+}
